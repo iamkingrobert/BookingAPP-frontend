@@ -1,41 +1,27 @@
 import { Link } from "react-router-dom";
+import { UserContext } from "../UserContex";
+import { useContext } from "react";
+import Africa from "../assets/Africa.png";
 
 export default function Header() {
+  const { user } = useContext(UserContext);
   return (
     <>
       <header className="flex justify-between">
-        <a className="flex items-center gap-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-8 h-8"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
-            />
-          </svg>
+        <Link to={"/"} className="flex items-center gap-1 cursor-pointer">
+          <img src={Africa} className="w-14 h-14" />
 
-          <span className="font-semibold text-[20px]">Travel Africa</span>
-        </a>
+          <span className="font-semibold text-[26px]">Travrica</span>
+        </Link>
 
         {/* Header Searchbar */}
-        <div className="flex gap-2 border border-black rounded-full py-2 px-4 shadow-md shadow-gray-500 mt-1">
-          <div>Destination</div>
+        <div className="flex gap-2 border border-gray-900 rounded-full py-2 px-4 shadow-md shadow-gray-500 mt-1">
+          <div className="p-2 text-[18px] mt-1">Destination</div>
           <div className="border-l border-gray-400"></div>
-          <div>Travel Date</div>
+          <div className="p-2 text-[18px] mt-1">Travel Date</div>
           <div className="border-l border-gray-400"></div>
-          <div>Add Guests</div>
-          <button className="bg-black text-white p-1 rounded-full">
+          <div className="p-2 text-[18px] mt-1">Add Guests</div>
+          <button className="bg-black text-white p-3 mb-2 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -53,7 +39,7 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="flex items-center gap-2 border border-black rounded-full py-2 px-4">
+        <div className="flex items-center gap-2 border border-gray-900 rounded-full py-2 px-4 shadow-sm shadow-gray-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -69,8 +55,8 @@ export default function Header() {
             />
           </svg>
           <Link
-            to={"/login"}
-            className="bg-black text-white rounded-full border border-gray-500 overflow-hidden "
+            to={user ? "/account" : "/login"}
+            className=" p-1 bg-black text-white rounded-full border border-gray-500 overflow-hidden "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +71,11 @@ export default function Header() {
               />
             </svg>
           </Link>
+          {!!user && (
+            <div className="p-2 bg-white text-[18px] text-black">
+              {user.name}
+            </div>
+          )}
         </div>
       </header>
     </>
