@@ -15,13 +15,19 @@ export default function Header() {
         </Link>
 
         {/* Header Searchbar */}
-        <div className="flex gap-2 border border-gray-900 rounded-full py-2 px-4 shadow-md shadow-gray-500 mt-1">
-          <div className="p-2 text-[18px] mt-1">Destination</div>
+        <div className="flex justify-center gap-2 border border-gray-900 rounded-full py-2 px-4 shadow-md shadow-gray-500 mt-1">
+          <div className="p-2 text-[18px] justify-center items-center">
+            Destination
+          </div>
           <div className="border-l border-gray-400"></div>
-          <div className="p-2 text-[18px] mt-1">Travel Date</div>
+          <div className="p-2 text-[18px] justify-center items-center">
+            Travel Date
+          </div>
           <div className="border-l border-gray-400"></div>
-          <div className="p-2 text-[18px] mt-1">Add Guests</div>
-          <button className="bg-black text-white p-3 mb-2 rounded-full">
+          <div className="p-2 text-[18px] justify-center items-center">
+            Add Guests
+          </div>
+          <button className="bg-black text-white p-3 justify-center items-center rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -39,7 +45,7 @@ export default function Header() {
           </button>
         </div>
 
-        <div className="flex items-center gap-2 border border-gray-900 rounded-full py-2 px-4 shadow-sm shadow-gray-500">
+        <div className="flex justify-center items-center gap-2 border border-gray-900 rounded-full py-2 px-4 shadow-sm shadow-gray-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -62,7 +68,7 @@ export default function Header() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-6 h-6 relative top-1"
+              className="w-5 h-5 relative top-1"
             >
               <path
                 fillRule="evenodd"
