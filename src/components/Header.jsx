@@ -2,64 +2,53 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../UserContex";
 import { useContext } from "react";
 import Africa from "../assets/Africa.png";
+import "./Header.css";
 
 export default function Header() {
   const { user } = useContext(UserContext);
   return (
     <>
       <header className="flex justify-between">
-        <Link to={"/"} className="flex items-center gap-1 cursor-pointer">
-          <img src={Africa} className="w-14 h-14" />
+        <Link to={"/"} className="flex items-center gap-[2px] cursor-pointer">
+          <img src={Africa} className="w-8 h-8" />
 
-          <span className="font-semibold text-[26px]">Travrica</span>
+          <span className=" font-normal text-[22px]">african star</span>
         </Link>
 
         {/* Header Searchbar */}
-        <div className="flex justify-center gap-2 border border-gray-900 rounded-full py-2 px-4 shadow-md shadow-gray-500 mt-1">
-          <div className="p-2 text-[18px] justify-center items-center">
-            Destination
+        <div className="flex justify-center self-center gap-2 border border-gray-900 custom-radius py-2 px-4 shadow-md shadow-gray-500 mt-1">
+          <div className="p-2 text-[14px] justify-center items-center cursor-pointer">
+            City
           </div>
-          <div className="border-l border-gray-400"></div>
-          <div className="p-2 text-[18px] justify-center items-center">
-            Travel Date
+          <div className="border-l border-gray-300"></div>
+          <div className="p-2 text-[14px] justify-center items-center cursor-pointer">
+            Check-In Date
           </div>
-          <div className="border-l border-gray-400"></div>
-          <div className="p-2 text-[18px] justify-center items-center">
-            Add Guests
+          <div className="border-l border-gray-300"></div>
+          <div className="p-2 text-[14px] justify-center items-center cursor-pointer">
+            Guests
           </div>
-          <button className="bg-black text-white p-3 justify-center items-center rounded-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </button>
+          <div className="">
+            <button className="bg-black text-white p-2 justify-center items-center rounded-full self-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-4 h-4"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
 
-        <div className="flex justify-center items-center gap-2 border border-gray-900 rounded-full py-2 px-4 shadow-sm shadow-gray-500">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
-            />
-          </svg>
+        <div className="flex justify-center items-center gap-1 border border-gray-400 custom-radius py-2 px-3 shadow-sm shadow-gray-400">
           <Link
             to={user ? "/account" : "/login"}
             className=" p-1 bg-black text-white rounded-full border border-gray-500 overflow-hidden "
@@ -68,7 +57,7 @@ export default function Header() {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              className="w-5 h-5 relative top-1"
+              className="w-4 h-4"
             >
               <path
                 fillRule="evenodd"
@@ -77,8 +66,13 @@ export default function Header() {
               />
             </svg>
           </Link>
+          {!user && (
+            <span className="bg-white text-[16px] text-black cursor-pointer">
+              Sign-On
+            </span>
+          )}
           {!!user && (
-            <div className="p-2 bg-white text-[18px] text-black">
+            <div className="bg-white text-[16px] text-black cursor-pointer">
               {user.name}
             </div>
           )}

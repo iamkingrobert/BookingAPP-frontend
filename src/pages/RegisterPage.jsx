@@ -15,7 +15,11 @@ export default function RegisterPage() {
         email,
         password,
       });
-      alert("User created successfully");
+      // Clear input fields after successful registration
+      setName("");
+      setEmail("");
+      setPassword("");
+      alert("Registration Successful, You can now login");
     } catch (err) {
       alert("Registration failed");
     }

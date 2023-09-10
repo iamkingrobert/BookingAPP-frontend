@@ -1,9 +1,17 @@
 export default function Features({ selected, onChange }) {
+  function handleCheckBox(e) {
+    const { checked, name } = e.target;
+    if (checked) {
+      onChange([...selected, name]);
+    } else {
+      onChange([...selected.filter((selectedName) => selectedName !== name)]);
+    }
+  }
   return (
     <>
       <div className="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-6 mt-3">
         <label className="border p-4 flex items-center justify-center gap-2 cursor-pointer">
-          <input type="checkbox" />
+          <input type="checkbox" name="wifi" onChange={handleCheckBox} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -23,7 +31,7 @@ export default function Features({ selected, onChange }) {
         </label>
 
         <label className="border p-4 flex items-center justify-center gap-2 cursor-pointer">
-          <input type="checkbox" />
+          <input type="checkbox" name="swimming" onChange={handleCheckBox} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -43,7 +51,7 @@ export default function Features({ selected, onChange }) {
         </label>
 
         <label className="border p-4 flex items-center justify-center gap-2 cursor-pointer">
-          <input type="checkbox" />
+          <input type="checkbox" name="parking" onChange={handleCheckBox} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -63,7 +71,7 @@ export default function Features({ selected, onChange }) {
         </label>
 
         <label className="border p-4 flex items-center justify-center gap-2 cursor-pointer">
-          <input type="checkbox" />
+          <input type="checkbox" name="gym" onChange={handleCheckBox} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -83,7 +91,7 @@ export default function Features({ selected, onChange }) {
         </label>
 
         <label className="border p-4 flex items-center justify-center gap-2 cursor-pointer">
-          <input type="checkbox" />
+          <input type="checkbox" name="tv" onChange={handleCheckBox} />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -103,7 +111,11 @@ export default function Features({ selected, onChange }) {
         </label>
 
         <label className="border p-4 flex gap-2 items-center justify-center cursor-pointer">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            name="refrigerator"
+            onChange={handleCheckBox}
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

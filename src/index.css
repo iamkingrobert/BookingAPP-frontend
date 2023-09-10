@@ -14,3 +14,7 @@ button.primary{
     background-color: black;
     @apply p-2 w-full text-white rounded-2xl
 }
+/* 
+*{
+    background-color: black;
+} */

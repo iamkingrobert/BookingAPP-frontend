@@ -1,7 +1,9 @@
+import HomeHero from "../components/HomeHero";
+
 export default function IndexPage() {
   return (
     <>
-      <div>This is my Home Page</div>
+      <HomeHero />
     </>
   );
 }
