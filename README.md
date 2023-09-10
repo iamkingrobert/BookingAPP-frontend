@@ -1,6 +1,6 @@
 # Africa Travel Booking Application FullStack
 
-This is a complete MERN Stack Booking Application and on the app I'm using the following technologies below;
+This is a complete MERN Stack Apartment Booking Application and on the app I'm using the following technologies below;
 
 TailwindCSS for UI Styling, Mongodb for Database and Node JS for my server.
 
