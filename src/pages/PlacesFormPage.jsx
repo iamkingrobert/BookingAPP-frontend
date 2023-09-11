@@ -29,7 +29,7 @@ export default function PlacesFormPage() {
       setAddress(data.address);
       setAddedPhoto(data.photos);
       setDescription(data.description);
-      setFeatures(data.perks);
+      setFeatures(data.features);
       setExtraInfo(data.extraInfo);
       setCheckIn(data.checkIn);
       setCheckOut(data.checkOut);
@@ -68,7 +68,7 @@ export default function PlacesFormPage() {
       });
   }
 
-  async function addNewPlace(e) {
+  async function savePlace(e) {
     e.preventDefault();
     const placeData = {
       title,
@@ -82,26 +82,41 @@ export default function PlacesFormPage() {
       maxGuests,
       price,
     };
-    if (id) {
-      // update
-      await axios.put("/places", {
-        id,
-        ...placeData,
-      });
+
+    try {
+      if (id) {
+        // update
+        await axios.put("/places", {
+          id,
+          title,
+          address,
+          addedPhoto,
+          description,
+          features,
+          extraInfo,
+          checkIn,
+          checkOut,
+          maxGuests,
+          price,
+        });
+      } else {
+        // new place
+        await axios.post("/places", placeData);
+      }
       setRedirect(true);
-    } else {
-      // new place
-      await axios.post("/places", placeData);
-      setRedirect(true);
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle the error (e.g., show an error message to the user)
     }
   }
+
   if (redirect) {
     return <Navigate to={"/account/places"} />;
   }
   return (
     <div>
       <AccountNav />
-      <form onSubmit={addNewPlace}>
+      <form onSubmit={savePlace}>
         <h2 className="text-xl mt-4">Title</h2>
         <input
           type="text"
@@ -224,6 +239,16 @@ export default function PlacesFormPage() {
               value={maxGuests}
               onChange={(e) => setMaxGuests(e.target.value)}
               placeholder="2"
+            />
+          </div>
+          <div className="mt-2">
+            <div className="">
+              <h3 className="mb-1 text-[20px] mt-4">Price Per Night</h3>
+            </div>
+            <input
+              type="number"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
             />
           </div>
         </div>
