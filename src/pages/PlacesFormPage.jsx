@@ -106,7 +106,6 @@ export default function PlacesFormPage() {
       setRedirect(true);
     } catch (error) {
       console.error("Error:", error);
-      // Handle the error (e.g., show an error message to the user)
     }
   }
 

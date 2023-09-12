@@ -22,30 +22,24 @@ export default function HomeHero() {
               membership tiers at any of our properties, at home or away, with
               or without a stay.
             </p>
+
+            <p className="text-[16px] pt-4">
+              Our philosophy is based on the principle that your professional,
+              residential and social needs while traveling can be provided in a
+              single location. Our hotels and serviced suites utilizes advanced
+              engineering technology to form the cubicle design with each unit
+              fitting neatly into the cantilevers above it to form the pod-like
+              framework of the iconic structure.
+            </p>
             <div className="mt-1">
-              <h1 className="text-[18px] font-mono">
-                discover adventure and luxury.
+              <h1 className="text-[16px] font-mono letter">
+                Discover Adventure Luxury
               </h1>
             </div>
-            <motion.div
-              animate={{
-                x: 0,
-                y: 1,
-                scale: 1,
-                rotate: -9,
-                transition: { duration: 1, delay: 1 },
-              }}
-              className="flex justify-between mt-6"
-            >
-              <div className="bg-black rounded-full h-[20px] w-[20px] "></div>
-              <div className="bg-black rounded-full h-[20px] w-[20px] "></div>
-              <div className="bg-black rounded-full h-[20px] w-[20px] "></div>
-              <div className="bg-black rounded-full h-[20px] w-[20px] "></div>
-              <div className="bg-black rounded-full h-[20px] w-[20px] "></div>
-            </motion.div>
-          </div>
-          <div className="bg-black mt-7 w-[140px] custom-radius ml-[265px] cursor-pointer">
-            <p className="text-white p-4 text-center">about us</p>
+
+            <div className="bg-black mt-7 w-[140px] custom-radius ml-[265px] cursor-pointer">
+              <p className="text-white p-4 text-center">about us</p>
+            </div>
           </div>
         </div>
 
@@ -65,9 +59,12 @@ export default function HomeHero() {
           <img src={Luxury} className="h-[500px]" />
         </motion.div>
       </div>
-
-      <div className=" self-center mt-[200px]">
-        <h2 className="text-[30px] text-center">Book Hotel</h2>
+      <div className="flex justify-between items-center mt-[145px] bounce">
+        <div className="bg-black rounded-full h-[10px] w-[10px] "></div>
+        <div className="bg-black rounded-full h-[10px] w-[10px] "></div>
+        <div className="bg-black rounded-full h-[10px] w-[10px] "></div>
+        <div className="bg-black rounded-full h-[10px] w-[10px] "></div>
+        <div className="bg-black rounded-full h-[10px] w-[10px] "></div>
       </div>
     </>
   );

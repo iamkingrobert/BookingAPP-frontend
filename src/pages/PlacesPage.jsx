@@ -16,7 +16,7 @@ export default function PlacesPage() {
       <AccountNav />
       <div className="text-center">
         <Link
-          className="inline-flex gap-1 bg-black text-white py-2 px-6 rounded-full"
+          className="inline-flex gap-1 bg-black text-white py-2 px-6 rounded-full mb-9"
           to={"/account/places/new"}
         >
           <svg
@@ -36,20 +36,52 @@ export default function PlacesPage() {
           Add New Place
         </Link>
       </div>
-      <div className="mt-4">
+      <div className="mt-5 mx-[250px]">
         {places.length > 0 &&
           places.map((place) => (
             <Link
               key={place.id}
               to={"/account/places/" + place._id}
-              className="flex cursor-pointer gap-4 bg-gray-100 p-4 rounded-2xl"
+              className="flex cursor-pointer gap-4  p-4 rounded-2xl"
             >
-              <div className="flex w-32 h-32 bg-gray-300 grow shrink-0">
-                <PlaceImg place={place} />
+              <div className="flex gap-5">
+                <PlaceImg
+                  place={place}
+                  className="w-[330px] h-[330px] object-cover"
+                />
               </div>
-              <div className="grow-0 shrink">
-                <h2 className="text-xl">{place.title}</h2>
+              <div className="grow-0 shrink w-[800px] ml-4">
+                <h2 className="text-xl">{place.title.toUpperCase()}</h2>
                 <p className="text-sm mt-2">{place.description}</p>
+
+                <div className="mt-3">
+                  <p className="text-[14px] text-gray-600">{place.extraInfo}</p>
+                </div>
+
+                <div className="flex gap-1">
+                  <p className="pt-2 text-[18px]">Perks:</p>
+                  <p className="text-[15px] mt-[11px]">
+                    {place.features.join(" ")}
+                  </p>
+                </div>
+                <div className="flex gap-3 mt-1">
+                  <div className="flex gap-2">
+                    <p className="text-[14px]">Check-In</p>
+                    <p className="text-[14px]">{place.checkIn} PM</p>
+                  </div>
+
+                  <div className="flex gap-2">
+                    <p className="text-[14px]">Check-In</p>
+                    <p className="text-[14px]">{place.checkIn} PM</p>
+                  </div>
+                </div>
+                <p className="text-[15px]">
+                  Price: $ {place.price} / Per Night
+                </p>
+
+                <div className="bg-black mt-4 w-[140px] custom-radius cursor-pointer">
+                  <p className="text-white p-4 text-center">edit property</p>
+                </div>
               </div>
             </Link>
           ))}
